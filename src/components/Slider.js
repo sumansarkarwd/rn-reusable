@@ -17,7 +17,7 @@ class Slider extends Component {
       super(props);
 
       this.state = {
-          showSlideData: false,
+          showSlideData: true,
       }
       this.position = new Animated.ValueXY(0, Dimensions.get('window').height - 85);
   }
