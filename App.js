@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text} from "react-native";
+import {View, Text, ScrollView} from "react-native";
 
 import Slider from "./src/components/Slider";
 import AuthFrom from "./src/components/AuthFrom";
@@ -51,10 +51,11 @@ class App extends Component {
   render() {
     return (
       <View style={{backgroundColor: '#eee', flex: 1}}>
-        {/* <Slider title='Suman Sarkar' data={this.state.data}/> */}
-        <AuthFrom title="Login">
+        <Slider title='Suman Sarkar' data={this.state.data}>
+        </Slider>
+        {/* <AuthFrom title="Login">
           <IconInput />
-        </AuthFrom>
+        </AuthFrom> */}
       </View>
     )
   }

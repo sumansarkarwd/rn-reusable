@@ -62,33 +62,6 @@ class Slider extends Component {
         );
       }
   }
-    
-  renderItem = item => {
-      return (
-          <Card>
-            <Text>{item.name}</Text>
-          </Card>
-      )
-  }
-
-  renderData = () => {
-      if(this.props.data) {
-          return (
-            <FlatList 
-                data={this.props.data}
-                renderItem={({ item }) => this.renderItem(item)}
-                keyExtractor={item => item.id}
-                showsVerticalScrollIndicator={false}
-            />
-          );
-      } else {
-          return (
-            <View style={styles.emptyView}>
-                <Text style={styles.emptyText}>Nothing seems to be here!</Text>
-            </View>
-          )
-      }
-  }
 
   render() {      
     return (
@@ -104,7 +77,7 @@ class Slider extends Component {
             </View>
           </View>
           <View style={styles.contentStyle}>
-            {this.renderData()}
+              {this.props.children}
           </View>
       </Animated.View>
     )
@@ -128,8 +101,8 @@ const styles = StyleSheet.create({
         height: 60,
         width: "100%",
         backgroundColor: '#fff',
-        borderTopLeftRadius: 10, 
-        borderTopEndRadius: 10, 
+        borderTopLeftRadius: 15, 
+        borderTopEndRadius: 15, 
         paddingHorizontal: 20,
         flexDirection: "row",
         alignItems: 'center',
