@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, StyleSheet, Dimensions, TouchableOpacity, FlatList} from "react-native";
+import {View, Text, StyleSheet, Dimensions, TouchableOpacity, FlatList, Animated} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 class Card extends Component {
@@ -13,16 +13,42 @@ class Card extends Component {
 }
 
 class Slider extends Component {
-  state = {
-      showSlideData: false,
+  constructor(props) {
+      super(props);
+
+      this.state = {
+          showSlideData: false,
+      }
+      this.position = new Animated.ValueXY(0, Dimensions.get('window').height - 85);
+  }
+
+  componentDidMount() {
+    this.toggleView();
   }
 
   toggleView = () => {
-      this.setState((prevState) => {
-          return ({
-            showSlideData: !prevState.showSlideData
-          });
-      });
+    this.setState((prevState) => {
+        return ({
+          showSlideData: !prevState.showSlideData
+        });
+    }, () => {
+        if(this.state.showSlideData) {
+            Animated.spring(this.position, {
+                toValue: {
+                    x: 0,
+                    y: Dimensions.get('window').height - (Dimensions.get('window').height - 100)
+                }
+            }).start();
+        } else {
+            Animated.spring(this.position, {
+                toValue: {
+                    x: 0,
+                    y: Dimensions.get('window').height - 85
+                }
+            }).start();
+        }
+    });
+      
   }
 
   renderIcon = () => {
@@ -65,7 +91,7 @@ class Slider extends Component {
 
   render() {      
     return (
-      <View style={[styles.rootContainer, this.state.showSlideData ? styles.rootContainerPositionShow : styles.rootContainerPositionHide]}>
+      <Animated.View style={[styles.rootContainer, this.position.getLayout()]}>
           <View style={styles.headerStyle}>
             <View style={styles.headerLeft}>
                 <Text style={styles.headerLeftText}>{this.props.title ? this.props.title : 'Please provide a Title from parent'}</Text>
@@ -79,7 +105,7 @@ class Slider extends Component {
           <View style={styles.contentStyle}>
             {this.renderData()}
           </View>
-      </View>
+      </Animated.View>
     )
   }
 }
