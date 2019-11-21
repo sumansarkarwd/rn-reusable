@@ -78,6 +78,7 @@ class Slider extends Component {
                 data={this.props.data}
                 renderItem={({ item }) => this.renderItem(item)}
                 keyExtractor={item => item.id}
+                showsVerticalScrollIndicator={false}
             />
           );
       } else {
@@ -97,7 +98,7 @@ class Slider extends Component {
                 <Text style={styles.headerLeftText}>{this.props.title ? this.props.title : 'Please provide a Title from parent'}</Text>
             </View>
             <View style={styles.headerRight}>
-                <TouchableOpacity onPress={() => this.toggleView()}>
+                <TouchableOpacity onPress={() => this.toggleView()} style={styles.buttonStyle}>
                     {this.renderIcon()}
                 </TouchableOpacity>
             </View>
@@ -136,11 +137,12 @@ const styles = StyleSheet.create({
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 2,
+            height: 5,
         },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-        elevation: 4,
+        shadowOpacity: 0.36,
+        shadowRadius: 6.68,
+
+        elevation: 11,
     },
     headerLeft: {
     },
@@ -149,6 +151,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     headerRight: {
+    },
+    buttonStyle: {
+        // backgroundColor: 'red',
+        padding: 15,
     },
     contentStyle: {
         height: Dimensions.get('window').height - (Dimensions.get('window').height - (Dimensions.get('window').height - 100) + 85),
