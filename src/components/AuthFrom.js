@@ -9,7 +9,7 @@ class AuthForm extends Component {
                 <View style={styles.titleCon}>
                     <Text style={styles.titleStyle}>{this.props.title}</Text>
                 </View>
-                <View style={styles.formsCon}>
+                <View style={[styles.formsCon, {height: 80 * this.props.items_count}]}>
                     {this.props.children}
                     <View style={styles.submitButton}>
                         <Icon name='check' size={20} color='#fff'/>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         fontSize: 36,
         fontStyle: 'italic',
         fontWeight: 'bold',
-        color: '#666',
+        color: '#46596f',
     },
     formsCon: {
         width: Dimensions.get('window').width - 50,
@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignSelf: 'flex-start',
         padding: 20,
-        minHeight: 100,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
 
     submitButton: {
         position: 'absolute',
-        backgroundColor: 'green',
+        backgroundColor: '#1bd6bc',
         right: -15,
         height: 50,
         width: 50,
