@@ -52,8 +52,9 @@ class App extends Component {
     return (
       <View style={{backgroundColor: '#eee', flex: 1}}>
         {/* <Slider title='Suman Sarkar' data={this.state.data}>
+          <Text>Foo</Text>
         </Slider> */}
-        <AuthFrom title="Login" items_count={2}>
+        {/* <AuthFrom title="Login" items_count={2}>
           <IconInput 
           icon='envelope'
           icon_color='#999'
@@ -66,7 +67,7 @@ class App extends Component {
           icon_size={35}
           placeholder='Password'
           />
-        </AuthFrom>
+        </AuthFrom> */}
       </View>
     )
   }

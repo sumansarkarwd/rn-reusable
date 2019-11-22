@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, StyleSheet, Dimensions, TouchableOpacity, FlatList, Animated} from "react-native";
+import {View, Text, StyleSheet, Dimensions, TouchableWithoutFeedback, FlatList, Animated} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 class Card extends Component {
@@ -66,16 +66,16 @@ class Slider extends Component {
   render() {      
     return (
       <Animated.View style={[styles.rootContainer, this.position.getLayout()]}>
+        <TouchableWithoutFeedback onPress={() => this.toggleView()}>
           <View style={styles.headerStyle}>
             <View style={styles.headerLeft}>
                 <Text style={styles.headerLeftText}>{this.props.title ? this.props.title : 'Please provide a Title from parent'}</Text>
             </View>
             <View style={styles.headerRight}>
-                <TouchableOpacity onPress={() => this.toggleView()} style={styles.buttonStyle}>
                     {this.renderIcon()}
-                </TouchableOpacity>
             </View>
           </View>
+        </TouchableWithoutFeedback>
           <View style={styles.contentStyle}>
               {this.props.children}
           </View>
