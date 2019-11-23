@@ -1,9 +1,14 @@
 import React, {Component} from "react";
 import {View, Text, ScrollView} from "react-native";
+import {
+  Card,
+  Button
+} from "react-native-elements";
 
 import Slider from "./src/components/Slider";
 import AuthFrom from "./src/components/AuthFrom";
 import IconInput from "./src/components/IconInput";
+import TinderDeck from "./src/components/TinderDeck";
 
 class App extends Component {
 
@@ -45,7 +50,44 @@ class App extends Component {
         "id": "5dd634e35dee6706411281ea",
         "name": "Marsh Edwards"
       }
+    ],
+    deckData: [
+      { id: 1, text: 'Card #1', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
+      { id: 2, text: 'Card #2', uri: 'http://www.fluxdigital.co/wp-content/uploads/2015/04/Unsplash.jpg' },
+      { id: 3, text: 'Card #3', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-09.jpg' },
+      { id: 4, text: 'Card #4', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
+      { id: 5, text: 'Card #5', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
+      { id: 6, text: 'Card #6', uri: 'http://www.fluxdigital.co/wp-content/uploads/2015/04/Unsplash.jpg' },
+      { id: 7, text: 'Card #7', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-09.jpg' },
+      { id: 8, text: 'Card #8', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
     ]
+  }
+
+  renderItem(item) {
+    return (
+      <Card
+      key={item.id}
+      title={item.text}
+      image={{uri: item.uri}}
+      >
+        <Button 
+        icon={{name: 'code'}}
+        title="View now"
+        />
+      </Card>
+    )
+  }
+  renderNoMoreItems() {
+    return (
+      <Card
+      title="All done!"
+      >
+        <Button 
+        icon={{name: 'code'}}
+        title="Get more"
+        />
+      </Card>
+    )
   }
 
   render() {
@@ -68,6 +110,11 @@ class App extends Component {
           placeholder='Password'
           />
         </AuthFrom> */}
+        <TinderDeck 
+          data={this.state.deckData}
+          renderItem={(item) => this.renderItem(item)}
+          renderNoMoreItems={() => this.renderNoMoreItems()}
+        />
       </View>
     )
   }
