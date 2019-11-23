@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import {View, Text, ScrollView} from "react-native";
 import {
   Card,
-  Button
+  Button,
+  Image,
 } from "react-native-elements";
 
 import Slider from "./src/components/Slider";
@@ -52,27 +53,23 @@ class App extends Component {
       }
     ],
     deckData: [
-      { id: 1, text: 'Card #1', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
-      { id: 2, text: 'Card #2', uri: 'http://www.fluxdigital.co/wp-content/uploads/2015/04/Unsplash.jpg' },
-      { id: 3, text: 'Card #3', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-09.jpg' },
-      { id: 4, text: 'Card #4', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
-      { id: 5, text: 'Card #5', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
-      { id: 6, text: 'Card #6', uri: 'http://www.fluxdigital.co/wp-content/uploads/2015/04/Unsplash.jpg' },
-      { id: 7, text: 'Card #7', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-09.jpg' },
-      { id: 8, text: 'Card #8', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
+      { id: 1, text: 'Card #1', uri: 'https://images.unsplash.com/photo-1574447942165-b594a1be0194?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1402&q=80' },
+      { id: 2, text: 'Card #2', uri: 'https://images.unsplash.com/photo-1574448731364-cb4fa680b770?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80' },
+      { id: 3, text: 'Card #3', uri: 'https://images.unsplash.com/photo-1574449430309-aab2cb553b58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80' },
+      { id: 4, text: 'Card #4', uri: 'https://images.unsplash.com/photo-1574449904246-354db32b1add?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80' },
+      { id: 5, text: 'Card #5', uri: 'https://images.unsplash.com/photo-1562887250-1ccd2e28a02c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80' },
+      { id: 6, text: 'Card #6', uri: 'https://images.unsplash.com/photo-1574430032801-5fabe1e138db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=405&q=80' },
+      { id: 7, text: 'Card #7', uri: 'https://images.unsplash.com/photo-1572883515366-83f5e73c6fc6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80' },
+      { id: 8, text: 'Card #8', uri: 'https://images.unsplash.com/photo-1571942790878-b43e71f29476?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80' },
     ]
   }
 
   renderItem(item) {
     return (
-      <Card
-      key={item.id}
-      title={item.text}
-      image={{uri: item.uri}}
-      >
-        <Button 
-        icon={{name: 'code'}}
-        title="View now"
+      <Card>
+        <Image 
+        source={{uri: item.uri}}
+        style={{height: 400, width: '100%'}}
         />
       </Card>
     )
