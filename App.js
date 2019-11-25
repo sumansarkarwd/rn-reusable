@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, ScrollView} from "react-native";
+import {View, Text, ScrollView, StyleSheet} from "react-native";
 import {
   Card,
   Button,
@@ -71,6 +71,7 @@ class App extends Component {
         source={{uri: item.uri}}
         style={{height: 400, width: '100%'}}
         />
+        <Text style={styles.textStyle}>Tinder Card</Text>
       </Card>
     )
   }
@@ -116,5 +117,14 @@ class App extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  textStyle: {
+    fontSize: 22,
+    marginTop: 10,
+    textAlign: 'center',
+    fontFamily: 'Raleway-Regular',
+  }
+})
 
 export default App;
